@@ -5,11 +5,15 @@ public class Fecha {
 	private int mes;
 	private int anio;
 	
-	// I can create 2 constructos for this class. In case of one might not have arguments. This is called "Sobrecarga" 
+	// I can create 2 constructor for this class. In case of one might not have arguments. This is called "Sobrecarga" 
 	public Fecha(String s) {
+		
+		// Get position from characters
+		// i.e. for 18/07/2013 the pos1 variable is equal to 2. It needs counting from left to right
 		int pos1 = s.indexOf('/');
 		int pos2 = s.lastIndexOf('/');
 		
+		// As a result I have a string. Just clean the data from backslash and parse the String into a Numbers.
 		String sDia = s.substring(0, pos1);
 		dia = Integer.parseInt(sDia);
 		
