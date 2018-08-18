@@ -49,6 +49,33 @@ public class Fecha {
 	public void setAnio(int anio) {
 		this.anio = anio;
 	}
+	
+	private int fechaToDias() {
+		return anio * 360 + mes * 30 + dia;
+	}
+	private void diasToFecha(int i) {
+		anio = (int) i / 360;
+		
+		int restante = i % 360;
+		
+		mes = (int) restante / 30;
+		
+		dia = (int) restante % 30;
+		
+		if(dia == 0) {
+			dia = 30;
+			mes--;
+		}
+		if(mes == 0) {
+			mes = 12;
+			anio--;
+		}
+		
+	}
+	public void addDias(int dias) {
+		int diasTotales = fechaToDias() + dias;
+		diasToFecha(diasTotales);
+	}
 
 	// Override toString method
 	public String toString() {
