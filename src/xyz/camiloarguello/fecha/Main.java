@@ -9,6 +9,9 @@ public class Main {
 		f2.setDia(10);
 		f2.setMes(10);
 		f2.setAnio(50);
+		
+		Fecha f3 = new Fecha("18/04/2018");
+		System.out.println(f3.getDia());
 	}
 
 }

@@ -6,7 +6,19 @@ public class Fecha {
 	private int anio;
 	
 	// I can create 2 constructos for this class. In case of one might not have arguments. This is called "Sobrecarga" 
-	
+	public Fecha(String s) {
+		int pos1 = s.indexOf('/');
+		int pos2 = s.lastIndexOf('/');
+		
+		String sDia = s.substring(0, pos1);
+		dia = Integer.parseInt(sDia);
+		
+		String sMes = s.substring(pos1 + 1, pos2);
+		mes = Integer.parseInt(sMes);
+		
+		String sAnio = s.substring(pos2 + 1);
+		anio = Integer.parseInt(sAnio);
+	}
 	public Fecha(int d, int m, int a) {
 		super();
 		this.dia = d;
@@ -15,16 +27,6 @@ public class Fecha {
 	}
 	public Fecha() {}
 	
-	// Override toString method
-	public String toString() {
-		return dia + "/" + mes + "/" + anio;
-	}
-	
-	// Override equals method
-	public boolean equals(Object obj) {
-		Fecha otra = (Fecha) obj;
-		return (dia == otra.dia) && (mes == otra.mes) && (anio == otra.anio);
-	}
 	public int getDia() {
 		return dia;
 	}
@@ -44,5 +46,15 @@ public class Fecha {
 		this.anio = anio;
 	}
 
+	// Override toString method
+	public String toString() {
+		return dia + "/" + mes + "/" + anio;
+	}
+		
+	// Override equals method
+	public boolean equals(Object obj) {
+		Fecha otra = (Fecha) obj;
+		return (dia == otra.dia) && (mes == otra.mes) && (anio == otra.anio);
+	}
 	
 }
